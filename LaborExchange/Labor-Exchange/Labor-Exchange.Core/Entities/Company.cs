@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Labor_Exchange.Core.Entities
+﻿namespace Labor_Exchange.Core.Entities
 {
-    internal class Company
+    public class Company : EntityBase
     {
+        public string Name { get; set; }
+
+        public string Contacts { get; set; }
     }
 }

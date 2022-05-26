@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labor-Exchange.Core", "Labor-Exchange.Core\Labor-Exchange.Core.csproj", "{4C48FF3E-2B06-47B1-AF4D-62F9D12D4DEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labor-Exchange.Application", "Labor-Exchange.Application\Labor-Exchange.Application.csproj", "{72BB3279-FFDF-45C2-8D96-85B2C521D565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labor-Exchange.Infrastructure", "Labor-Exchange.Infrastructure\Labor-Exchange.Infrastructure.csproj", "{7CBA5D6C-E633-4B74-9728-1397378A7A17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4C48FF3E-2B06-47B1-AF4D-62F9D12D4DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C48FF3E-2B06-47B1-AF4D-62F9D12D4DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C48FF3E-2B06-47B1-AF4D-62F9D12D4DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72BB3279-FFDF-45C2-8D96-85B2C521D565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BB3279-FFDF-45C2-8D96-85B2C521D565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BB3279-FFDF-45C2-8D96-85B2C521D565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BB3279-FFDF-45C2-8D96-85B2C521D565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CBA5D6C-E633-4B74-9728-1397378A7A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CBA5D6C-E633-4B74-9728-1397378A7A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CBA5D6C-E633-4B74-9728-1397378A7A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CBA5D6C-E633-4B74-9728-1397378A7A17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
