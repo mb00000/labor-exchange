@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labor-Exchange.Core", "Labor-Exchange.Core\Labor-Exchange.Core.csproj", "{4C48FF3E-2B06-47B1-AF4D-62F9D12D4DEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Labor-Exchange.Core", "Labor-Exchange.Core\Labor-Exchange.Core.csproj", "{4C48FF3E-2B06-47B1-AF4D-62F9D12D4DEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labor-Exchange.Application", "Labor-Exchange.Application\Labor-Exchange.Application.csproj", "{72BB3279-FFDF-45C2-8D96-85B2C521D565}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Labor-Exchange.Application", "Labor-Exchange.Application\Labor-Exchange.Application.csproj", "{72BB3279-FFDF-45C2-8D96-85B2C521D565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labor-Exchange.Infrastructure", "Labor-Exchange.Infrastructure\Labor-Exchange.Infrastructure.csproj", "{7CBA5D6C-E633-4B74-9728-1397378A7A17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Labor-Exchange.Infrastructure", "Labor-Exchange.Infrastructure\Labor-Exchange.Infrastructure.csproj", "{7CBA5D6C-E633-4B74-9728-1397378A7A17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labor-Exchange.UI", "Labor-Exchange.UI\Labor-Exchange.UI.csproj", "{CC57F9D0-4B59-4DD1-B8F1-81448356A9AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{7CBA5D6C-E633-4B74-9728-1397378A7A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CBA5D6C-E633-4B74-9728-1397378A7A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CBA5D6C-E633-4B74-9728-1397378A7A17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC57F9D0-4B59-4DD1-B8F1-81448356A9AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC57F9D0-4B59-4DD1-B8F1-81448356A9AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC57F9D0-4B59-4DD1-B8F1-81448356A9AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC57F9D0-4B59-4DD1-B8F1-81448356A9AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
