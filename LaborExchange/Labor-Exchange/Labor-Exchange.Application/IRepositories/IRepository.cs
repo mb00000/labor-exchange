@@ -1,4 +1,6 @@
 ﻿using Labor_Exchange.Core.Entities;
+using Labor_Exchange.Application.Paging;
+using System.Linq.Expressions;
 
 namespace Labor_Exchange.Application.IRepositories
 {
