@@ -8,6 +8,10 @@ namespace Labor_Exchange.Infrastructure.ApplicationContext
         public EFContext()
         {
         }
+        public EFContext(DbContextOptions<EFContext> options)
+    : base(options)
+        {
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

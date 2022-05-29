@@ -12,8 +12,8 @@ namespace Labor_Exchange.Infrastructure.DataInitialaizer
 
             var companies = new List<Company>
             {
-                new Company { Id = 0, Contacts = "q", Name = "UI" },
-                new Company { Id = 1, Contacts = "05", Name = "uyrea" },
+                new Company {Contacts = "q", Name = "UI" },
+                new Company {Contacts = "05", Name = "uyrea" },
             }; 
 
             context.Companies.AddRange(companies);
@@ -21,8 +21,8 @@ namespace Labor_Exchange.Infrastructure.DataInitialaizer
 
             var workOffers = new List<WorkOffer>
             {
-                new WorkOffer { Id = 0, Position = "LA", Conditions = "sd", Housing = "sde", Requirements = "dfefr"},
-                new WorkOffer { Id = 1, Position = "fsdfsd", Conditions = "sfsdf", Housing = "sdf", Requirements = "ghkjfgj"},
+                new WorkOffer {Position = "LA", Conditions = "sd", Housing = "sde", Requirements = "dfefr"},
+                new WorkOffer {Position = "fsdfsd", Conditions = "sfsdf", Housing = "sdf", Requirements = "ghkjfgj"},
             };
 
             context.WorkOffers.AddRange(workOffers);

@@ -7,6 +7,6 @@ namespace Labor_Exchange.Application.IServices
     {
         Task<PagedList<EntityBase>> GetEntitiesPageAsync(PageParameters pageParameters);
 
-        Task<PagedList<EntityBase>> GetEntitiesPageAsync(PageParameters pageParameters, string filter);
+        Task<PagedList<EntityBase>> GetEntitiesPageAsync(PageParameters pageParameters, int filter);
     }
 }
