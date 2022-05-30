@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Labor_Exchange.UI
 {
     /// <summary>
-    /// Interaction logic for Employees.xaml
+    /// Interaction logic for WorkOffersWindow.xaml
     /// </summary>
-    public partial class Employees : Window
+    public partial class WorkOffersWindow : Window
     {
-        public Employees()
+        public WorkOffersWindow()
         {
             InitializeComponent();
         }

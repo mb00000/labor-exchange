@@ -1,24 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Labor_Exchange.Application.IServices;
 using Labor_Exchange.Application.Paging;
 using Labor_Exchange.Core.Entities;
 using Labor_Exchange.Infrastructure.DataInitialaizer;
 using Labor_Exchange.Infrastructure.ApplicationContext;
-using System.IO;
-using Microsoft.Win32;
+
 
 namespace Labor_Exchange.UI
 {
@@ -41,7 +28,6 @@ namespace Labor_Exchange.UI
             DBInitialaizer.Initialize(context);
 
             InitializeComponent();
-            //new Action(async () => await this.SetPage(1))();
         }
 
         private async Task SetPage(int pageNumber)
@@ -60,30 +46,29 @@ namespace Labor_Exchange.UI
         {
 
         }
+        
+        private void EmployeesTable(object sender, RoutedEventArgs e)
+        {
+            var employeesWindow = new EmployeesWindow(_itemsService);
+            employeesWindow.Show();
+        }
 
         private void WorkOffersTable(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void EmployeesTable(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CreateEmployee(object sender, RoutedEventArgs e)
-        {
-
+            var workOffersWindow = new WorkOffersWindow();
+            workOffersWindow.Show();
         }
 
         private void CreateCompany(object sender, RoutedEventArgs e)
         {
-
+            var createCompanyWindow = new CreateCompanyWindow();
+            createCompanyWindow.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CreateEmployee(object sender, RoutedEventArgs e)
         {
-
+            var createEmployeeWindow = new CreateEmployeeWindow();
+            createEmployeeWindow.Show();
         }
     }
 }

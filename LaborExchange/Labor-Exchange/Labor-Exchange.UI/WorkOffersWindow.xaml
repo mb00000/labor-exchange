@@ -1,0 +1,19 @@
+﻿<Window x:Class="Labor_Exchange.UI.WorkOffersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Labor_Exchange.UI"
+        mc:Ignorable="d"
+        Title="WorkOffersWindow" Height="450" Width="800">
+    <Grid Background="Coral">
+        <DataGrid x:Name="WorkOffers">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Посада" Binding="{Binding Position}"/>
+                <DataGridTextColumn Header="Умови" Binding="{Binding Conditions}"/>
+                <DataGridTextColumn Header="Проживання" Binding="{Binding Housiing}"/>
+                <DataGridTextColumn Header="Вимоги" Binding="{Binding Requirements}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
