@@ -23,7 +23,9 @@ namespace Labor_Exchange.Infrastructure
 
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddScoped<IItemsServices, Service>();
+            services.AddScoped<IEmployeeServices, EmployeeServices>();
+            services.AddScoped<ICompanyServices, CompanyServices>();
+            services.AddScoped<IWorkOfferServices, WorkOfferServices>();
 
             return services;
         }

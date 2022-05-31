@@ -24,27 +24,27 @@ namespace Labor_Exchange.UI
     /// </summary>
     public partial class EmployeesWindow : Window
     {
-        private readonly IItemsServices _itemsService;
+        private readonly IEmployeeServices _employeeServices;
 
         private PageParameters _pageParameters = new();
 
-        private PagedList<EntityBase> _items = new();
-        public EmployeesWindow(IItemsServices itemsService)
+        private PagedList<Employee> _employees = new();
+        public EmployeesWindow(IEmployeeServices employeeServices)
         {
-            this._itemsService = itemsService;
+            this._employeeServices = employeeServices;
 
             var context = new EFContext();
 
             InitializeComponent();
             new Action(async () => await this.SetPage(1))();
-            this.Employees.ItemsSource = this._items;
+            this.Employees.ItemsSource = this._employees;
         }
 
         private async Task SetPage(int pageNumber)
         {
             this._pageParameters.PageNumber = pageNumber;
-            this._items = await this._itemsService.GetEntitiesPageAsync(this._pageParameters);
-            this.Employees.ItemsSource = this._items;
+            this._employees = await this._employeeServices.GetEmployeesPageAsync(this._pageParameters);
+            this.Employees.ItemsSource = this._employees;
         }
     }
 }

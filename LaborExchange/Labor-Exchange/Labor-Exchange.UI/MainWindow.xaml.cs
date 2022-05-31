@@ -14,34 +14,17 @@ namespace Labor_Exchange.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IItemsServices _itemsService;
+        private readonly IEmployeeServices _employeeServices;
 
-        private PageParameters _pageParameters = new();
-
-        private PagedList<EntityBase> _items = new();
-
-        public MainWindow(IItemsServices itemsService)
+        public MainWindow(IEmployeeServices employeeServices)
         {
-            this._itemsService = itemsService;
+            this._employeeServices = employeeServices;
 
             var context = new EFContext();
             DBInitialaizer.Initialize(context);
 
             InitializeComponent();
         }
-
-        private async Task SetPage(int pageNumber)
-        {
-            this._pageParameters.PageNumber = pageNumber;
-            this._items = await this._itemsService.GetEntitiesPageAsync(this._pageParameters);
-        }
-
-        private async Task Search(int pageNumber)
-        {
-            this._pageParameters.PageNumber = pageNumber;
-            this._items = await this._itemsService.GetEntitiesPageAsync(this._pageParameters, this._items[_items.Count].Id);
-        }
-
         private void Add(object sender, RoutedEventArgs e)
         {
 
@@ -49,7 +32,7 @@ namespace Labor_Exchange.UI
         
         private void EmployeesTable(object sender, RoutedEventArgs e)
         {
-            var employeesWindow = new EmployeesWindow(_itemsService);
+            var employeesWindow = new EmployeesWindow(this._employeeServices);
             employeesWindow.Show();
         }
 
