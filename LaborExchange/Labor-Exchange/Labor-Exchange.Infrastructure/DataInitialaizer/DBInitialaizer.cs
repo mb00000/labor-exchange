@@ -31,9 +31,34 @@ namespace Labor_Exchange.Infrastructure.DataInitialaizer
             var employees = new List<Employee>
             {
                 new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
+                new Employee {Name="64", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884" },
                 new Employee {Name="68", Profession ="54", Education ="65478", Contacts = "567", Housing = "4", ReasonOfDismisal = "435", MartialStatus="64", LastWork="57884", }
 
             };
+
+            context.Employees.AddRange(employees);
+            context.SaveChanges();
         }
     }
 }

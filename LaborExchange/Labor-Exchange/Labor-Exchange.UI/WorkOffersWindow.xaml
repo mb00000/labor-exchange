@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="WorkOffersWindow" Height="450" Width="800">
     <Grid Background="Coral">
-        <DataGrid x:Name="WorkOffers">
+        <DataGrid x:Name="WorkOffers" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Посада" Binding="{Binding Position}"/>
                 <DataGridTextColumn Header="Умови" Binding="{Binding Conditions}"/>
-                <DataGridTextColumn Header="Проживання" Binding="{Binding Housiing}"/>
+                <DataGridTextColumn Header="Проживання" Binding="{Binding Housing}"/>
                 <DataGridTextColumn Header="Вимоги" Binding="{Binding Requirements}"/>
             </DataGrid.Columns>
         </DataGrid>

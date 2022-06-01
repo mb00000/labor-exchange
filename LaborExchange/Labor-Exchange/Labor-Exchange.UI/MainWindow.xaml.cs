@@ -16,6 +16,9 @@ namespace Labor_Exchange.UI
     {
         private readonly IEmployeeServices _employeeServices;
 
+        private readonly IWorkOfferServices _workOfferServices;
+
+
         public MainWindow(IEmployeeServices employeeServices)
         {
             this._employeeServices = employeeServices;
@@ -25,11 +28,7 @@ namespace Labor_Exchange.UI
 
             InitializeComponent();
         }
-        private void Add(object sender, RoutedEventArgs e)
-        {
 
-        }
-        
         private void EmployeesTable(object sender, RoutedEventArgs e)
         {
             var employeesWindow = new EmployeesWindow(this._employeeServices);
@@ -38,7 +37,7 @@ namespace Labor_Exchange.UI
 
         private void WorkOffersTable(object sender, RoutedEventArgs e)
         {
-            var workOffersWindow = new WorkOffersWindow();
+            var workOffersWindow = new WorkOffersWindow(_workOfferServices);
             workOffersWindow.Show();
         }
 
@@ -46,12 +45,6 @@ namespace Labor_Exchange.UI
         {
             var createCompanyWindow = new CreateCompanyWindow();
             createCompanyWindow.Show();
-        }
-
-        private void CreateEmployee(object sender, RoutedEventArgs e)
-        {
-            var createEmployeeWindow = new CreateEmployeeWindow();
-            createEmployeeWindow.Show();
         }
     }
 }

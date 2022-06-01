@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Labor_Exchange.Application.IServices;
+using Labor_Exchange.Application.Paging;
+using Labor_Exchange.Core.Entities;
+using Labor_Exchange.Infrastructure.ApplicationContext;
+using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Labor_Exchange.UI
 {
@@ -19,9 +13,28 @@ namespace Labor_Exchange.UI
     /// </summary>
     public partial class WorkOffersWindow : Window
     {
-        public WorkOffersWindow()
+        private readonly IWorkOfferServices _workOfferServices;
+
+        private PageParameters _pageParameters = new();
+
+        private PagedList<WorkOffer> _workOffers = new();
+
+        public WorkOffersWindow(IWorkOfferServices workOfferServices)
         {
+            this._workOfferServices = workOfferServices;
+
+            EFContext context = new EFContext();
             InitializeComponent();
+
+            new Action(async () => await this.SetPage(1))();
+            this.WorkOffers.ItemsSource = this._workOffers;
+        }
+
+        private async Task SetPage(int pageNumber)
+        {
+            this._pageParameters.PageNumber = pageNumber;
+            this._workOffers = await this._workOfferServices.GetWorkOffersPageAsync(this._pageParameters);
+            this.WorkOffers.ItemsSource = this._workOffers;
         }
     }
 }

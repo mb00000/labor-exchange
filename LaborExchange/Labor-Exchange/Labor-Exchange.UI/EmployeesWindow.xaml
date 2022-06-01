@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="EmployeesWindow" Height="450" Width="800">
     <Grid Background="Coral">
-        <DataGrid x:Name="Employees">
+        <DataGrid x:Name="Employees" AutoGenerateColumns="False" Margin="0,0,0,158">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Ім'я" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Професія" Binding="{Binding Proffesion}"/>
+                <DataGridTextColumn Header="Професія" Binding="{Binding Profession}"/>
                 <DataGridTextColumn Header="Освіта" Binding="{Binding Education}"/>
                 <DataGridTextColumn Header="Минула посада і компанія" Binding="{Binding LastWork}"/>
                 <DataGridTextColumn Header="Причина звільнення" Binding="{Binding ReasonOfDismisal}"/>
@@ -20,6 +20,16 @@
                 <DataGridTextColumn Header="Контакти" Binding="{Binding Contacts}"/>
             </DataGrid.Columns>
         </DataGrid>
-
+        <TextBox x:Name="Name" TextWrapping="Wrap" Text="Ім'я" Margin="10,286,694,90" RenderTransformOrigin="0.384,1.78" TextChanged="Name_TextChanged"/>
+        <TextBox x:Name="Profession" TextWrapping="Wrap" Text="Професія" Margin="10,362,694,14" RenderTransformOrigin="0.439,0.095" TextChanged="Profession_TextChanged"/>
+        <TextBox x:Name="Education" TextWrapping="Wrap" Text="Освіта" Margin="124,286,580,90" TextChanged="Education_TextChanged"/>
+        <TextBox x:Name="LastWork" TextWrapping="Wrap" Text="Минула посада і компанія" Margin="124,362,580,14" TextChanged="LastWork_TextChanged"/>
+        <TextBox x:Name="ReasonOfDismisal" TextWrapping="Wrap" Text="Причина звільнення" Margin="241,286,463,90" TextChanged="ReasonOfDismisal_TextChanged"/>
+        <TextBox x:Name="MartialStatus" TextWrapping="Wrap" Text="Сімейний стан" Margin="241,362,463,14" RenderTransformOrigin="1.231,2.729" TextChanged="MartialStatus_TextChanged"/>
+        <TextBox x:Name="Housing" TextWrapping="Wrap" Text="Житло" Margin="363,286,341,90" TextChanged="Housing_TextChanged"/>
+        <TextBox x:Name="Contacts" TextWrapping="Wrap" Text="Контакти" Margin="363,362,341,14" RenderTransformOrigin="-0.444,1.44" TextChanged="Contacts_TextChanged"/>
+        <Button x:Name="AddEmployee" Content="Подати вакансію" Margin="483,362,205,14" Click="AddEmployee_Click"/>
+        <Button Content="&lt;" Margin="608,281,155,90" Click="PreviousPage_Click"/>
+        <Button Content="&gt;" Margin="670,281,93,90" Click="NextPage_Click"/>
     </Grid>
 </Window>

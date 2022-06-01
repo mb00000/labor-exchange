@@ -2,20 +2,10 @@
 using Labor_Exchange.Application.Paging;
 using Labor_Exchange.Core.Entities;
 using Labor_Exchange.Infrastructure.ApplicationContext;
-using Labor_Exchange.Infrastructure.DataInitialaizer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Labor_Exchange.UI
 {
@@ -25,6 +15,8 @@ namespace Labor_Exchange.UI
     public partial class EmployeesWindow : Window
     {
         private readonly IEmployeeServices _employeeServices;
+
+        private Employee _newEmployee = new Employee();
 
         private PageParameters _pageParameters = new();
 
@@ -45,6 +37,83 @@ namespace Labor_Exchange.UI
             this._pageParameters.PageNumber = pageNumber;
             this._employees = await this._employeeServices.GetEmployeesPageAsync(this._pageParameters);
             this.Employees.ItemsSource = this._employees;
+        }
+
+        private void Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var name = Name.Text;
+            this._newEmployee.Name = name;
+        }
+
+        private void Profession_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var profession = Profession.Text;
+            this._newEmployee.Profession = profession;
+        }
+
+        private void Education_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var education = Education.Text;
+            this._newEmployee.Education = education;
+        }
+
+        private void LastWork_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var lastWork = LastWork.Text;
+            this._newEmployee.LastWork = lastWork;
+        }
+
+        private void ReasonOfDismisal_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var reasonOfDismisal = ReasonOfDismisal.Text;
+            this._newEmployee.ReasonOfDismisal = reasonOfDismisal;
+        }
+
+        private void MartialStatus_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var martialStatus = MartialStatus.Text;
+            this._newEmployee.MartialStatus = martialStatus;
+        }
+
+        private void Housing_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var housing = Housing.Text;
+            this._newEmployee.Housing = housing;
+        }
+
+        private void Contacts_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var contacts = Contacts.Text;
+            this._newEmployee.Contacts = contacts;
+        }
+
+        private void AddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            this._employeeServices.AddEmployee(_newEmployee);
+            this._employees.Add(this._newEmployee);
+            this._newEmployee = new Employee();
+            this.RefreshGrid();
+        }
+
+        private void RefreshGrid()
+        {
+            this.Employees.Items.Refresh();
+        }
+
+        private async void NextPage_Click(object sender, RoutedEventArgs e)
+        {
+            if(this._employees.PageNumber < this._employees.TotalItems)
+            {
+                await this.SetPage(this._employees.PageNumber + 1);
+            }
+        }
+
+        private async void PreviousPage_Click(object sender, RoutedEventArgs e)
+        {
+            if (this._employees.PageNumber > 1)
+            {
+                await this.SetPage(this._employees.PageNumber - 1);
+            }
         }
     }
 }
