@@ -1,8 +1,5 @@
-﻿using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Labor_Exchange.Application.IServices;
-using Labor_Exchange.Application.Paging;
-using Labor_Exchange.Core.Entities;
 using Labor_Exchange.Infrastructure.DataInitialaizer;
 using Labor_Exchange.Infrastructure.ApplicationContext;
 
@@ -18,33 +15,33 @@ namespace Labor_Exchange.UI
 
         private readonly IWorkOfferServices _workOfferServices;
 
-
-        public MainWindow(IEmployeeServices employeeServices)
+        public MainWindow(IEmployeeServices employeeServices, IWorkOfferServices workOfferServices)
         {
+            this._workOfferServices = workOfferServices;
             this._employeeServices = employeeServices;
 
             var context = new EFContext();
-            DBInitialaizer.Initialize(context);
+            //DBInitialaizer.Initialize(context);
 
             InitializeComponent();
         }
 
         private void EmployeesTable(object sender, RoutedEventArgs e)
         {
-            var employeesWindow = new EmployeesWindow(this._employeeServices);
+            var employeesWindow = new EmployeesWindow(this._employeeServices, this._workOfferServices);
             employeesWindow.Show();
         }
 
         private void WorkOffersTable(object sender, RoutedEventArgs e)
         {
-            var workOffersWindow = new WorkOffersWindow(_workOfferServices);
+            var workOffersWindow = new WorkOffersWindow(this._workOfferServices, this._employeeServices);
             workOffersWindow.Show();
         }
 
-        private void CreateCompany(object sender, RoutedEventArgs e)
+        private void Storage_Click(object sender, RoutedEventArgs e)
         {
-            var createCompanyWindow = new CreateCompanyWindow();
-            createCompanyWindow.Show();
+            var storage = new Storage(_workOfferServices);
+            storage.Show();
         }
     }
 }

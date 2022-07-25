@@ -5,31 +5,107 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Labor_Exchange.UI"
         mc:Ignorable="d"
-        Title="EmployeesWindow" Height="450" Width="800">
+        Title="Employees" Height="700" Width="1000">
     <Grid Background="Coral">
-        <DataGrid x:Name="Employees" AutoGenerateColumns="False" Margin="0,0,0,158">
+        <DataGrid x:Name="Employees" CanUserAddRows="False" AutoGenerateColumns="False" Margin="0,0,556,307">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Ім'я" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Професія" Binding="{Binding Profession}"/>
-                <DataGridTextColumn Header="Освіта" Binding="{Binding Education}"/>
-                <DataGridTextColumn Header="Минула посада і компанія" Binding="{Binding LastWork}"/>
-                <DataGridTextColumn Header="Причина звільнення" Binding="{Binding ReasonOfDismisal}"/>
-                <DataGridTextColumn Header="Сімейний стан" Binding="{Binding MartialStatus}"/>
-                <DataGridTextColumn Header="Житло" Binding="{Binding Housing}"/>
-                <DataGridTextColumn Header="Контакти" Binding="{Binding Contacts}"/>
+                <DataGridTextColumn Header="Number" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Profession" Binding="{Binding Profession}"/>
+                <DataGridTextColumn Header="Education" Binding="{Binding Education}"/>
+                <DataGridTextColumn Header="Last work" Binding="{Binding LastWork}"/>
+                <DataGridTextColumn Header="Requirements" Binding="{Binding Requirements}"/>
+                <DataGridTextColumn Header="Reason of Dismisal" Binding="{Binding ReasonOfDismisal}"/>
+                <DataGridTextColumn Header="Martial status" Binding="{Binding MartialStatus}"/>
+                <DataGridTextColumn Header="Housing" Binding="{Binding Housing}"/>
+                <DataGridTextColumn Header="Contacts" Binding="{Binding Contacts}"/>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Padding="15,3,15,3" Width="70" Click="DeleteEmployee_Click" Content="Delete" HorizontalAlignment="Center" BorderBrush="Transparent" Tag="{Binding Id}" Background="Red" Foreground="White">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="13"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Padding="15,3,15,3" Width="110" Click="SearchWorkOffers_Click" Content="Search " HorizontalAlignment="Center" BorderBrush="Transparent" Tag="{Binding Id}" Background="Orange" Foreground="White">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="13"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Padding="15,3,15,3" Width="110" Click="GeneratePdf_Click" Content="Generate PDF" HorizontalAlignment="Center" BorderBrush="Transparent" Tag="{Binding Id}" Background="Orange" Foreground="White">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="13"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="Name" TextWrapping="Wrap" Text="Ім'я" Margin="10,286,694,90" RenderTransformOrigin="0.384,1.78" TextChanged="Name_TextChanged"/>
-        <TextBox x:Name="Profession" TextWrapping="Wrap" Text="Професія" Margin="10,362,694,14" RenderTransformOrigin="0.439,0.095" TextChanged="Profession_TextChanged"/>
-        <TextBox x:Name="Education" TextWrapping="Wrap" Text="Освіта" Margin="124,286,580,90" TextChanged="Education_TextChanged"/>
-        <TextBox x:Name="LastWork" TextWrapping="Wrap" Text="Минула посада і компанія" Margin="124,362,580,14" TextChanged="LastWork_TextChanged"/>
-        <TextBox x:Name="ReasonOfDismisal" TextWrapping="Wrap" Text="Причина звільнення" Margin="241,286,463,90" TextChanged="ReasonOfDismisal_TextChanged"/>
-        <TextBox x:Name="MartialStatus" TextWrapping="Wrap" Text="Сімейний стан" Margin="241,362,463,14" RenderTransformOrigin="1.231,2.729" TextChanged="MartialStatus_TextChanged"/>
-        <TextBox x:Name="Housing" TextWrapping="Wrap" Text="Житло" Margin="363,286,341,90" TextChanged="Housing_TextChanged"/>
-        <TextBox x:Name="Contacts" TextWrapping="Wrap" Text="Контакти" Margin="363,362,341,14" RenderTransformOrigin="-0.444,1.44" TextChanged="Contacts_TextChanged"/>
-        <Button x:Name="AddEmployee" Content="Подати вакансію" Margin="483,362,205,14" Click="AddEmployee_Click"/>
-        <Button Content="&lt;" Margin="608,281,155,90" Click="PreviousPage_Click"/>
-        <Button Content="&gt;" Margin="670,281,93,90" Click="NextPage_Click"/>
+        <TextBox x:Name="Name" TextWrapping="Wrap" Text="name" Margin="10,510,896,112" RenderTransformOrigin="0.384,1.78"/>
+        <TextBox x:Name="Profession" TextWrapping="Wrap" Text="profession" Margin="10,594,896,29" RenderTransformOrigin="0.439,0.095"/>
+        <TextBox x:Name="Education" TextWrapping="Wrap" Text="education" Margin="128,511,778,112"/>
+        <TextBox x:Name="LastWork" TextWrapping="Wrap" Text="last work" Margin="128,594,778,29"/>
+        <TextBox x:Name="ReasonOfDismisal" TextWrapping="Wrap" Text="reason of dismisal" Margin="246,594,659,29"/>
+        <TextBox x:Name="MartialStatus" TextWrapping="Wrap" Text="martial status" Margin="360,512,546,111" RenderTransformOrigin="1.231,2.729"/>
+        <TextBox x:Name="Housing" TextWrapping="Wrap" Text="housing" Margin="245,511,659,111"/>
+        <TextBox x:Name="Contacts" TextWrapping="Wrap" Text="contacts" Margin="360,594,546,29" RenderTransformOrigin="-0.444,1.44"/>
+        <Button x:Name="AddEmployee" Content="Create employee" Margin="652,551,236,56" Click="AddEmployee_Click"/>
+        <TextBox x:Name="EmployeeSearch" TextWrapping="Wrap" Margin="37,410,872,229"/>
+        <Button Content="Search" HorizontalAlignment="Left" Height="45" Margin="128,410,0,0" VerticalAlignment="Top" Width="40" Click="Search_Click"/>
+        <Button Content="Save changes" Margin="861,578,27,29" Click="Save_Click"/>
+        <DataGrid x:Name="Searched" AutoGenerateColumns="False" CanUserAddRows="False" Margin="539,-1,0,307">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.007"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Number" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Position" Binding="{Binding Position}"/>
+                <DataGridTextColumn Header="Conditions" Binding="{Binding Conditions}"/>
+                <DataGridTextColumn Header="Housing" Binding="{Binding Housing}"/>
+                <DataGridTextColumn Header="Requirements" Binding="{Binding Requirements}"/>
+                <DataGridTextColumn Header="Company" Binding="{Binding Company}"/>
+                <DataGridTextColumn Header="Contacts" Binding="{Binding Contacts}"/>
+                <DataGridTemplateColumn Header="" Width="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Generate PGF" Click="GeneratePdfWorkOffer_Click" Padding="15,3,15,3" HorizontalAlignment="Center" BorderBrush="Transparent" Tag="{Binding Id}" Background="Orange" Foreground="White">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="13"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="&lt;" Margin="281,402,661,221" Click="PreviousPage_Click"/>
+        <Button Content="&gt;" Margin="360,402,581,221" Click="NextPage_Click"/>
+        <TextBox x:Name="Requirements" TextWrapping="Wrap" Text="Requirements" Height="61" Margin="482,551,424,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

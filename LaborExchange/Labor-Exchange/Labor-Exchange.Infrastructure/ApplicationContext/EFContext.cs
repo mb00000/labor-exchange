@@ -21,7 +21,5 @@ namespace Labor_Exchange.Infrastructure.ApplicationContext
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<WorkOffer> WorkOffers { get; set; }
-
-        public DbSet<Company> Companies { get; set; }
     }
 }

@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Labor_Exchange.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Labor Exchange" Height="700" Width="1000">
     <Grid Background="Coral">
-        <Button Content="Знайти роботу" Margin="50,291,450,68" Width="300" Height="75" FontSize="20" Click="WorkOffersTable"/>
-        <Button Content="Знайти працівників" Margin="450,291,50,68" RenderTransformOrigin="0.332,1.213" Width="300" Height="75" FontSize="20" Click="EmployeesTable">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="For work offers" Margin="50,435,566,68" FontSize="20" Click="WorkOffersTable" Grid.ColumnSpan="2"/>
+        <Button Content="For employees" Margin="563,437,51,68" RenderTransformOrigin="0.332,1.213" FontSize="20" Click="EmployeesTable" Grid.ColumnSpan="2">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -18,6 +22,6 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Зареєструвати компанію" Width="300" Height="75" FontSize="20" Margin="453,101,47,258" Click="CreateCompany"/>
+        <Button Content="Storage" Margin="250,91,250,393" FontSize="20" Click="Storage_Click" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

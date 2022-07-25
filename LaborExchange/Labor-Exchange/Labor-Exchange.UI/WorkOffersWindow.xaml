@@ -5,14 +5,113 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Labor_Exchange.UI"
         mc:Ignorable="d"
-        Title="WorkOffersWindow" Height="450" Width="800">
-    <Grid Background="Coral">
-        <DataGrid x:Name="WorkOffers" AutoGenerateColumns="False">
+        Title="Work Offers" Height="700" Width="1000">
+    <Grid Background="Coral" Margin="0,-2,0,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="199*"/>
+            <ColumnDefinition Width="201*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="WorkOffers" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,0,19,343">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Посада" Binding="{Binding Position}"/>
-                <DataGridTextColumn Header="Умови" Binding="{Binding Conditions}"/>
-                <DataGridTextColumn Header="Проживання" Binding="{Binding Housing}"/>
-                <DataGridTextColumn Header="Вимоги" Binding="{Binding Requirements}"/>
+                <DataGridTextColumn Header="Number" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Positions" Binding="{Binding Position}"/>
+                <DataGridTextColumn Header="Conditions" Binding="{Binding Conditions}"/>
+                <DataGridTextColumn Header="Housing" Binding="{Binding Housing}"/>
+                <DataGridTextColumn Header="Requirements" Binding="{Binding Requirements}"/>
+                <DataGridTextColumn Header="Company" Binding="{Binding Company}"/>
+                <DataGridTextColumn Header="Contacts" Binding="{Binding Contacts}"/>
+                <DataGridTemplateColumn Header="" Width="140">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Send to storage" Padding="15,3,15,3" HorizontalAlignment="Center" BorderBrush="Transparent" Tag="{Binding Id}" Background="#FF4AD699" Foreground="White" Click="AddToStorage_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="13"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="DeleteWorkOffer_Click" Padding="15,3,15,3" HorizontalAlignment="Center" BorderBrush="Transparent" Tag="{Binding Id}" Background="Red" Foreground="White">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="13"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Search" Click="SearchEmployees_Click" Padding="15,3,15,3" HorizontalAlignment="Center" BorderBrush="Transparent" Tag="{Binding Id}" Background="Orange" Foreground="White">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="13"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="" Width="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Generate PGF" Click="GeneratePdf_Click" Padding="15,3,15,3" HorizontalAlignment="Center" BorderBrush="Transparent" Tag="{Binding Id}" Background="Orange" Foreground="White">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="13"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBox x:Name="Housing" TextWrapping="Wrap" Text="Housing" Margin="298,568,120,43"/>
+        <TextBox x:Name="Company" TextWrapping="Wrap" Text="Company" Margin="396,568,21,43"/>
+        <TextBox x:Name="Requirements" TextWrapping="Wrap" Text="Requirements" Margin="396,485,21,126"/>
+        <TextBox x:Name="Conditions" TextWrapping="Wrap" Text="Conditions" Margin="0,568,422,43" Grid.Column="1"/>
+        <TextBox x:Name="Position" TextWrapping="Wrap" Text="Position" Margin="296,485,120,126"/>
+        <Button Content="Create work offer" Margin="110,534,284,92" Click="AddWorkOffer_Click" Grid.Column="1"/>
+        <Button Content="&lt;" Margin="102,389,355,245" Click="PreviousPage_Click"/>
+        <Button Content="Save changes" Click="Save_Click" Margin="251,394,121,209" Grid.Column="1"/>
+        <Button Content="&gt;" Margin="148,389,307,245" Click="NextPage_Click"/>
+        <TextBox x:Name="WorkOfferSearch" TextWrapping="Wrap" Width="120" Margin="281,391,97,247"/>
+        <Button Content="Search" Margin="401,391,40,247" Click="WorkOfferSearch_Click"/>
+        <TextBox x:Name="Contacts" TextWrapping="Wrap" Text="Contacts" Margin="0,485,422,126" Grid.Column="1"/>
+        <DataGrid x:Name="Searched" CanUserAddRows="False" AutoGenerateColumns="False" Grid.Column="1" Margin="14,0,0,343">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Number" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Profession" Binding="{Binding Profession}"/>
+                <DataGridTextColumn Header="Education" Binding="{Binding Education}"/>
+                <DataGridTextColumn Header="Last work" Binding="{Binding LastWork}"/>
+                <DataGridTextColumn Header="Requirements" Binding="{Binding Requirements}"/>
+                <DataGridTextColumn Header="Reason of Dismisal" Binding="{Binding ReasonOfDismisal}"/>
+                <DataGridTextColumn Header="Martial status" Binding="{Binding MartialStatus}"/>
+                <DataGridTextColumn Header="Housing" Binding="{Binding Housing}"/>
+                <DataGridTextColumn Header="Contacts" Binding="{Binding Contacts}"/>
+                <DataGridTemplateColumn Header="" Width="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Generate PGF" Click="GeneratePdfEmployee_Click" Padding="15,3,15,3" HorizontalAlignment="Center" BorderBrush="Transparent" Tag="{Binding Id}" Background="Orange" Foreground="White">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="13"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

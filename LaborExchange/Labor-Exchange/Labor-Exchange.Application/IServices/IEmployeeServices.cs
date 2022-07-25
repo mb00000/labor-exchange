@@ -7,8 +7,18 @@ namespace Labor_Exchange.Application.IServices
     {
         Task<PagedList<Employee>> GetEmployeesPageAsync(PageParameters pageParameters);
 
-        Task<PagedList<Employee>> GetEmployeesPageAsync(PageParameters pageParameters, int filter);
+        Task<PagedList<Employee>> GetEmployeesPageAsync(PageParameters pageParameters, string filter, int option);
 
         Task AddEmployee(Employee employee);
+
+        Task GenerateEmployeesPDF(string path, int id);
+
+        Task RemoveByIdAsync(int Id);
+
+        Task SaveChangesAsync();
+
+        Task<int> GetEmployeesCount();
+
+        Task<Employee> GetOneAsync(int id);
     }
 }

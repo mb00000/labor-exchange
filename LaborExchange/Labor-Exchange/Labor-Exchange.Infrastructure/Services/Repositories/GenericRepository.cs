@@ -33,7 +33,7 @@ namespace Labor_Exchange.Infrastructure.Repositories
 
         public async Task<TEntity> GetOneAsync(int id)
         {
-            return await this._table.FirstOrDefaultAsync<TEntity>(entity => entity.Id == id);
+           return await this._table.FirstOrDefaultAsync<TEntity>(entity => entity.Id == id);
         }
 
         public async Task SaveAsync()
@@ -41,22 +41,9 @@ namespace Labor_Exchange.Infrastructure.Repositories
             await this._db.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(TEntity item)
-        {
-            this._table.Update(item);
-            await this.SaveAsync();
-        }
-
-        public async Task UpdateRangeAsync(IEnumerable<TEntity> entities)
-        {
-            this._table.UpdateRange(entities);
-            await this._db.SaveChangesAsync();
-        }
-
         public async Task<PagedList<TEntity>> GetPageAsync(PageParameters pageParameters)
         {
             var entities = await this._table
-                         .AsNoTracking()
                          .Skip((pageParameters.PageNumber - 1) * pageParameters.PageSize)
                          .Take(pageParameters.PageSize)
                          .ToListAsync();
@@ -68,7 +55,6 @@ namespace Labor_Exchange.Infrastructure.Repositories
         public async Task<PagedList<TEntity>> GetPageAsync(PageParameters pageParameters, Expression<Func<TEntity, bool>> predicate)
         {
             var entities = await this._table
-                                     .AsNoTracking()
                                      .Where(predicate)
                                      .Skip((pageParameters.PageNumber - 1) * pageParameters.PageSize)
                                      .Take(pageParameters.PageSize)
@@ -78,9 +64,9 @@ namespace Labor_Exchange.Infrastructure.Repositories
             return new PagedList<TEntity>(entities, pageParameters, count);
         }
 
-        public void Attach(params object[] obj)
+        public async Task<int> GetCountEntities()
         {
-            this._db.AttachRange(obj);
+            return await this._table.CountAsync();
         }
     }
 }

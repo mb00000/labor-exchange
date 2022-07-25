@@ -17,5 +17,7 @@
         public string Housing { get; set; }
 
         public string Contacts { get; set; }
+
+        public string Requirements { get; set; }
     }
 }

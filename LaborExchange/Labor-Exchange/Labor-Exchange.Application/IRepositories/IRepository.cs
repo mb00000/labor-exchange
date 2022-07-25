@@ -8,13 +8,7 @@ namespace Labor_Exchange.Application.IRepositories
     {
         Task AddAsync(TEntity item);
 
-        Task UpdateRangeAsync(IEnumerable<TEntity> entities);
-
-        Task UpdateAsync(TEntity item);
-
         Task DeleteAsync(TEntity item);
-
-        void Attach(params object[] obj);
 
         Task<TEntity> GetOneAsync(int id);
 
@@ -22,6 +16,8 @@ namespace Labor_Exchange.Application.IRepositories
 
         Task<PagedList<TEntity>> GetPageAsync(PageParameters pageParameters,
                                               Expression<Func<TEntity, bool>> predicate);
+
+        Task<int> GetCountEntities();
 
         Task SaveAsync();
     }
